@@ -1,306 +1,314 @@
-# FluxOS ⚡
+# FluxOS
 
-> **FluxOS --- Build your dream.**\
-> Egy saját arculatú, moduláris Linux-disztribúció és asztali platform,
-> amelyet játékra, munkára és fejlesztésre lehet szabni.
+```{=html}
+<p align="center">
+```
+`<strong>`{=html}Build your dream.`</strong>`{=html}`<br>`{=html} Egy
+saját arculatú Linux-platform játékhoz, munkához és fejlesztéshez.
+```{=html}
+</p>
+```
+```{=html}
+<p align="center">
+```
+`<img alt="Version" src="https://img.shields.io/badge/version-5.0.0--alpha-blue">`{=html}
+`<img alt="Status" src="https://img.shields.io/badge/status-in%20development-orange">`{=html}
+`<img alt="Platform" src="https://img.shields.io/badge/platform-x86__64-informational">`{=html}
+```{=html}
+</p>
+```
+> **A FluxOS célja:** egy egységes, modern és bővíthető operációs
+> rendszerélmény létrehozása saját asztali felülettel,
+> rendszereszközökkel és alkalmazás-ökoszisztémával.
 
-![Version](https://img.shields.io/badge/version-5.0.0--alpha-blue)
-![Platform](https://img.shields.io/badge/platform-x86__64-informational)
-![Status](https://img.shields.io/badge/status-alpha-orange)
+**Fejlesztési állapot:** alpha. A README-ben szereplő funkciók
+fejlesztési célok, amíg az adott kiadás dokumentációja nem igazolja,
+hogy ténylegesen elkészültek és tesztelve vannak.
 
-> **Állapot:** a FluxOS fejlesztés alatt álló projekt. Az itt felsorolt
-> funkciók közül csak azok tekinthetők elérhetőnek, amelyek a jelenlegi
-> buildben ténylegesen megvalósultak és tesztelve vannak.
+------------------------------------------------------------------------
 
 ## Mi a FluxOS?
 
-A FluxOS célja, hogy egységes, könnyen használható Linux-élményt adjon
-saját kezelőfelülettel, profilokkal, rendszereszközökkel és
-alkalmazásintegrációval. Nem egyetlen disztribúció parancsait vagy
-csomagkezelőjét teszi kötelezővé: a rendszer összetevőit egy cserélhető
-alapréteghez tervezzük illeszteni.
+A FluxOS egy Linux-alapú rendszerplatform koncepciója, amely a
+mindennapi használatot, a játékot és a fejlesztést egyetlen következetes
+élménybe szeretné rendezni.
 
-A projekt céljai:
+Nem egyetlen disztribúció felhasználói felületének átszínezése a cél. A
+hosszú távú terv egy saját márkával, beállításközponttal, telepítési
+élménnyel, profilrendszerrel és frissítési folyamattal rendelkező
+platform.
 
--   **Saját felhasználói élmény:** következetes asztal, beállítások és
-    első indítási folyamat.
--   **Moduláris felépítés:** a grafikus felület, rendszereszközök és
-    profilok külön fejleszthetők.
--   **Hardverhez igazodás:** ésszerű alapbeállítások laptopokhoz,
-    asztali gépekhez és virtuális gépekhez.
--   **Ellenőrizhető build:** ismételhető összeállítás, naplózás és
-    tesztek.
--   **Biztonságos frissítés:** ellenőrizhető csomagforrások, aláírások
-    és visszaállítási lehetőségek.
--   **Hosszú távú bővíthetőség:** később saját alkalmazásbolt,
-    csomagformátum és fejlesztői SDK is kialakítható.
+### Alapelvek
 
-## Kiadások és profilok
+-   **Saját élmény:** egységes asztal, első indítás, beállítások és
+    rendszereszközök.
+-   **Moduláris architektúra:** az UI, a rendszerintegráció és az
+    alkalmazásréteg külön fejleszthető.
+-   **Alapréteg-függetlenség:** a disztribúcióspecifikus műveletek külön
+    adaptereken keresztül érhetők el.
+-   **Biztonság alapértelmezésben:** ellenőrzött források, jogosultságok
+    és átlátható frissítések.
+-   **Mérhető minőség:** reprodukálható build, automatizált tesztek és
+    dokumentált hardvertámogatás.
+-   **Fokozatos fejlődés:** a funkciók csak tesztelés után kerülnek
+    stabilként megjelölésre.
 
-A profilok eltérő alapbeállításokat és alkalmazáscsomagokat választanak
-ki. A profilváltásnak a felhasználói fájlokat és a személyes
-beállításokat meg kell őriznie.
+## Profilok
+
+A profilok az alkalmazáscsomagokat és a rendszerbeállításokat a
+felhasználási célhoz igazítják.
 
   -----------------------------------------------------------------------
-  Profil                  Cél                     Javasolt összetevők
+  Profil                  Mire való?              Fő irány
   ----------------------- ----------------------- -----------------------
-  **Gaming**              Játék és streaming      grafikus gyorsítás,
-                                                  kompatibilitási réteg,
-                                                  játékindító, felvételi
-                                                  eszközök
+  **Gaming**              Játék, streaming,       Grafikus gyorsítás,
+                          játékindítók            kompatibilitási
+                                                  eszközök, felvétel
 
-  **Office**              Tanulás és              irodai csomag, naptár,
-                          produktivitás           jegyzetelés,
-                                                  fókuszbeállítások
+  **Office**              Tanulás, dokumentumok,  Irodai alkalmazások,
+                          produktivitás           jegyzetelés, fókusz
 
-  **Server**              Szolgáltatások          minimális telepítés,
-                          futtatása               távoli adminisztráció,
-                                                  naplózás, szigorúbb
-                                                  hálózati alapértékek
+  **Developer**           Programozás és          Fordítók, Git, IDE-k,
+                          buildelés               tesztelőeszközök
 
-  **Developer**           Programozás és          fordítók, Git,
-                          tesztelés               szerkesztők,
-                                                  buildeszközök és
-                                                  konténerek opcionálisan
+  **Server**              Szolgáltatások és       Minimalizált telepítés,
+                          távoli adminisztráció   naplózás, hálózati
+                                                  biztonság
 
-  **Minimal**             Kis alaprendszer        csak az alapvető
-                                                  rendszerkomponensek
+  **Minimal**             Saját rendszer építése  Kis alaprendszer,
+                                                  opcionális komponensek
   -----------------------------------------------------------------------
 
-A profilok nem külön operációs rendszerek: közös alaprendszerre épülő
-konfigurációk. A pontos csomaglista a kiadás és az alapréteg függvénye.
+A profilok közös alapra épülnek. A váltásnak meg kell őriznie a
+személyes fájlokat, és egyértelműen jeleznie kell, milyen csomagokat
+vagy beállításokat módosít.
 
-## Energia- és teljesítménymódok
+## Energia- és teljesítménykezelés
 
-A tervezett `flux-power` felület egységes parancsot ad az energia- és
-teljesítményprofilokhoz. A tényleges viselkedés a hardvertől és az
-elérhető rendszerkomponensektől függ.
+A tervezett `flux-power` parancs és a grafikus beállításközpont egységes
+felületet ad az energiaállapotokhoz.
 
   -----------------------------------------------------------------------
   Mód                                 Cél
   ----------------------------------- -----------------------------------
-  **Eco**                             Alacsonyabb fogyasztás és hosszabb
-                                      akkumulátoros üzemidő
+  **Eco**                             Energiatakarékos működés
 
-  **Balanced**                        Általános használat
-                                      kiegyensúlyozott beállításokkal
+  **Balanced**                        Általános, kiegyensúlyozott
+                                      használat
 
-  **Performance**                     Nagyobb teljesítmény játékhoz,
-                                      fordításhoz vagy rendereléshez
+  **Performance**                     Játék, fordítás és renderelés
+                                      alatti nagyobb teljesítmény
   -----------------------------------------------------------------------
 
-A Performance mód nem garantál korlátlan órajelet, és nem írhatja felül
-a hardver biztonsági hő- és fogyasztási korlátait.
+A tényleges hatás hardver- és driverfüggő. A rendszer nem kerülheti meg
+a CPU vagy GPU biztonsági hőmérsékleti és fogyasztási korlátait.
 
-## Alkalmazások és szolgáltatások
+## FluxOS-élmény
 
-A FluxOS tervezett alkalmazás- és rendszerkomponensei:
+A projekt saját felületének és eszközeinek tervezett részei:
 
--   **Böngésző:** adatvédelmi beállításokkal és frissítési folyamattal.
--   **OBS Studio:** képernyőfelvétel és streaming, ha az adott profilban
-    telepítve van.
--   **Játékkompatibilitás:** a hardverhez és az alapréteghez illő
-    futtatókörnyezetek.
--   **Képernyőzár:** saját arculatú felület; időjárás csak engedélyezett
-    hálózati szolgáltatással.
--   **Frissítő:** a rendszer által támogatott, ellenőrzött forrásokból
-    frissít.
--   **Beállításközpont:** rendszerinformáció, eszközök, energia és
-    profilok kezelése.
+-   **Flux Desktop:** egységes asztali környezet és ablakkezelési
+    élmény.
+-   **Control Center:** rendszerinformációk, profilok, energia és
+    eszközbeállítások.
+-   **Setup Wizard:** áttekinthető telepítési és első indítási folyamat.
+-   **Flux Update:** frissítések ellenőrzése, telepítése és hibajelzése.
+-   **App Catalog:** alkalmazások felfedezése és telepítése ellenőrzött
+    forrásból.
+-   **Gaming eszközök:** játékindítók, kompatibilitási rétegek és
+    streaming-eszközök.
+-   **Developer eszközök:** fejlesztői környezetek és buildfolyamatok
+    egyszerű elérése.
 
-A README nem tekinti előre telepítettnek azokat az alkalmazásokat,
-amelyek még nincsenek benne az adott ISO-ban. A kiadási jegyzeteknek
-kell felsorolniuk a valóban elérhető komponenseket.
+Ezek tervezett komponensek; a kiadási jegyzetnek kell megmondania,
+melyik érhető el ténylegesen az adott verzióban.
+
+## Alapréteg-független architektúra
+
+A FluxOS nem kötheti a teljes rendszerlogikát egyetlen disztribúció
+csomagkezelőjéhez.
+
+A javasolt rétegek:
+
+1.  **Flux UX:** asztal, beállítások, telepítő és felhasználói
+    alkalmazások.
+2.  **Flux Core:** profilok, konfiguráció, rendszerállapot és közös
+    API-k.
+3.  **Platform adapterek:** csomagtelepítés, frissítés,
+    szolgáltatáskezelés, kernel- és driverinformáció.
+4.  **Linux alapréteg:** az adott build által támogatott disztribúció és
+    annak csomagjai.
+
+Az adaptereknek explicit módon kell jelezniük a képességeiket. Ha egy
+platformon egy funkció nem támogatott, a FluxOS adjon érthető
+hibaüzenetet ahelyett, hogy más disztribúció parancsát próbálná
+lefuttatni.
+
+A „több alapréteg támogatása" csak akkor tekinthető késznek, ha minden
+támogatott célhoz létezik buildkonfiguráció, telepítési útmutató és
+sikeres teszt.
 
 ## Rendszerkövetelmények
 
-Ezek kezdeti célértékek, nem minden hardveren igazolt garanciák.
+Az alábbiak kezdeti célértékek, nem minden hardverre érvényes garanciák.
 
   -----------------------------------------------------------------------
-  Erőforrás               Minimális cél           Ajánlott cél
+  Erőforrás               Egyszerű használat      Gaming / fejlesztés
   ----------------------- ----------------------- -----------------------
-  **CPU**                 64 bites, támogatott    modern, többmagos CPU
-                          x86-64 processzor       
+  **CPU**                 Támogatott 64 bites     Modern, többmagos CPU
+                          x86-64 CPU              
 
-  **RAM**                 2--4 GB egyszerű        8 GB vagy több;
-                          használathoz            fejlesztéshez és
-                                                  játékhoz több is
-                                                  hasznos
+  **RAM**                 2--4 GB lehet a cél,    8 GB vagy több ajánlott
+                          grafikus felülettől     
+                          függően                 
 
-  **Tárhely**             legalább 20 GB szabad   50 GB vagy több SSD-n
+  **Tárhely**             Legalább 20 GB szabad   50 GB vagy több SSD-n
                           hely                    
 
-  **GPU**                 támogatott integrált    a használt játékokhoz
-                          grafika                 vagy munkafolyamatokhoz
-                                                  megfelelő GPU
+  **GPU**                 Támogatott integrált    Az alkalmazásokhoz illő
+                          grafika                 GPU
 
-  **Internet**            telepítéshez és         stabil szélessávú
-                          frissítéshez szükséges  kapcsolat
+  **Internet**            Frissítéshez és online  Stabil szélessávú
+                          telepítéshez            kapcsolat
   -----------------------------------------------------------------------
 
-A tényleges követelményeket az asztali környezet, a kiválasztott profil
-és az alkalmazások határozzák meg. Nagyobb rendszerkomponensek
-fordításához több RAM és szabad tárhely szükséges.
+A tényleges minimumot minden stabil kiadás előtt hardveren vagy
+dokumentált virtuális gépben kell ellenőrizni.
 
 ## Telepítés
 
-A telepítő felülete és lépései kiadásonként változhatnak. **Csak a
-projekt hivatalos kiadási oldaláról származó, ellenőrzött ISO-t
-használd.**
+1.  Töltsd le az ISO-t a projekt hivatalos
+    [Releases](https://github.com/bencepalko383-lgtm/Flux-OS/releases)
+    oldaláról.
+2.  Ellenőrizd az ellenőrzőösszeget vagy a kiadáshoz tartozó aláírást,
+    ha elérhető.
+3.  Készíts telepítő USB-t egy megbízható lemezképíróval.
+4.  Indítsd el a számítógépet az USB-ről.
+5.  Ha elérhető, próbáld ki a live környezetet a telepítés előtt.
+6.  A telepítőben ellenőrizd a céllemezt, a partíciókat és a telepítési
+    módot.
+7.  Készíts biztonsági mentést, mielőtt bármilyen lemezmódosítást
+    jóváhagysz.
+8.  Az első indítás után teszteld a hálózatot, a hangot, a grafikus
+    gyorsítást és a frissítéseket.
 
-1.  Töltsd le a kiadáshoz tartozó ISO-t és az ellenőrzőösszeget vagy
-    aláírást.
-2.  Ellenőrizd a letöltött fájl épségét.
-3.  Készíts telepítő USB-meghajtót egy megbízható lemezképíró eszközzel.
-4.  Indítsd el a gépet az USB-meghajtóról.
-5.  Próbáld ki a live környezetet, ha a kiadás biztosít ilyet.
-6.  A telepítőben ellenőrizd még egyszer a céllemezt és a partíciókat.
-7.  Csak az adatokról készített biztonsági mentés után indítsd el a
-    telepítést.
-8.  Az első indítás után ellenőrizd a hálózatot, a hangot, a grafikát és
-    a frissítéseket.
+> **Figyelem:** a telepítés adatvesztést okozhat. Ne használj vakon
+> példákból átvett lemezneveket vagy destruktív parancsokat; mindig
+> ellenőrizd a célmeghajtót.
 
-> **Figyelem:** a lemezparticionálás és a telepítés adatvesztést
-> okozhat. Ne másolj vakon példaparancsokat, és ne feltételezd, hogy egy
-> adott `/dev/sdX` mindig ugyanazt a lemezt jelenti. Előbb ellenőrizd az
-> eszköz nevét és méretét.
+A hálózatkezelés, a particionálás, a bootloader és a csomagtelepítés
+pontos lépései az adott FluxOS-kiadástól és alaprétegtől függenek. A
+kiadási dokumentáció ezekhez konkrét, tesztelt útmutatót kell adjon.
 
-### Internet és hálózat
+## Frissítés, biztonság és helyreállítás
 
-A hálózat konfigurációja az alaprétegtől függ. Ha nincs kapcsolat:
+A frissítési rendszer célja:
 
-1.  ellenőrizd a kábel- vagy Wi-Fi-kapcsolatot;
-2.  nézd meg, hogy a hálózatkezelő szolgáltatás fut-e;
-3.  ellenőrizd, hogy a megfelelő firmware és illesztőprogram elérhető-e;
-4.  olvasd el az adott kiadás hibaelhárítási útmutatóját.
+-   a csomagok és metaadatok ellenőrzése;
+-   a frissítési források egyértelmű megjelenítése;
+-   naplózás és használható hibaüzenetek;
+-   megszakadt frissítés kezelése;
+-   támogatott rendszereken visszaállítási lehetőség biztosítása.
 
-A pontos parancsokat a FluxOS adott kiadásához kell megadni; nem
-feltételezzük, hogy minden rendszeren ugyanaz a hálózatkezelő vagy
-csomagkezelő van telepítve.
-
-## Frissítés és helyreállítás
-
-A rendszerfrissítésnek ellenőrzött forrásból kell történnie. A FluxOS
-frissítőjének célja, hogy:
-
--   ellenőrizze a letöltött metaadatokat és csomagokat;
--   egyértelműen jelezze a sikert vagy a hibát;
--   naplót készítsen;
--   megszakadt frissítés után biztonságos helyreállítást tegyen
-    lehetővé;
--   lehetőség szerint támogassa az előző működő állapot visszaállítását.
-
-Amíg a FluxOS saját frissítője nem érhető el az adott kiadásban, az
-alapréteg hivatalos frissítési eljárását kell követni. Ne futtass
-ismeretlen, távoli szkripteket rendszergazdai jogosultsággal.
+A FluxOS nem kérhet szükségtelen rendszergazdai jogosultságot, és nem
+futtathat ellenőrizetlen távoli szkripteket automatikusan. A stabil
+kiadásokhoz biztonsági frissítési folyamatot és
+sérülékenység-bejelentési csatornát kell fenntartani.
 
 ## Hardverkompatibilitás
 
-A támogatás a kernel, a firmware, a grafikus stack és a kiadás
-összetevőitől függ. A kompatibilitási listát tényleges tesztek alapján
-kell vezetni.
+A kompatibilitást tényleges tesztek alapján kell dokumentálni. A
+támogatás függ a kerneltől, a firmware-től, a driverektől és a grafikus
+stacktől.
 
-  Terület               Ellenőrizendő
-  --------------------- ----------------------------------------------------
-  Intel / AMD CPU       boot, energiagazdálkodás, hőmérséklet
-  Intel / AMD grafika   kijelző, gyorsítás, alvásból ébredés
-  NVIDIA grafika        az adott GPU-hoz illő driver és grafikus stack
-  Laptop                akkumulátor, fényerő, Wi-Fi, alvó mód
-  Bluetooth             eszközfelismerés és hang
-  Virtuális gép         grafika, hálózat, megosztott eszközök
-  Több GPU              külső GPU-ra irányított alkalmazások és fogyasztás
+  Terület             Tesztelendő funkciók
+  ------------------- ---------------------------------------
+  Intel / AMD CPU     Boot, energiafelügyelet, hőmérséklet
+  Intel / AMD GPU     Kijelző, gyorsítás, alvás és ébredés
+  NVIDIA GPU          Megfelelő driver és grafikus stack
+  Laptop              Akkumulátor, fényerő, Wi-Fi, alvó mód
+  Wi-Fi / Bluetooth   Felismerés, kapcsolat, hang
+  Virtuális gép       Boot, grafika, hálózat
+  Több GPU            Alkalmazásonkénti GPU-választás
 
-Egy eszköz csak akkor jelölhető teljesen támogatottnak, ha a tesztelt
-hardver és a kiadás verziója dokumentálva van.
+Egy hardver csak akkor jelölhető teljesen támogatottnak, ha a tesztelt
+modell, a FluxOS-verzió és az eredmény dokumentálva van.
 
-## Fejlesztés és build
+## Fejlesztés és minőségbiztosítás
 
-A FluxOS célja a reprodukálható build. Az alapréteg kiválasztása külön
-konfigurációban történjen, ne legyen szétszórva a kódban.
+A buildfolyamatnak külön munkakönyvtárat, hibánál leálló szkripteket,
+naplózást és reprodukálható kimenetet kell használnia.
 
-A buildrendszernek legalább a következőket kell biztosítania:
+A kiadás előtti ellenőrzések:
 
--   a buildhez szükséges függőségek ellenőrzése;
--   a célplatform és az alapréteg explicit kiválasztása;
--   külön munkakönyvtár, amelyet a projekt forrásai nem írnak felül;
--   naplózás és hibánál azonnali leállás;
--   a kész ISO méretének, hashének és build-metaadatainak rögzítése;
--   tesztek futtatása a kiadás előtt.
+-   build- és csomagolási tesztek;
+-   ISO ellenőrzőösszeg és build-metaadat;
+-   bootteszt virtuális gépben;
+-   telepítési és első indítási teszt;
+-   hálózat-, hang- és grafikai alaptesztek;
+-   frissítési és helyreállítási teszt;
+-   ismert hibák és korlátozások dokumentálása.
 
-A konkrét buildparancsokat a repository aktuális szkriptjei és
-dokumentációja alapján kell megadni. Ez a README önmagában nem állítja,
-hogy minden célplatformhoz már kész build pipeline tartozik.
+A buildhez szükséges pontos parancsokat és függőségeket a repository
+tényleges buildszkriptjeihez kell igazítani. Ez a dokumentum nem
+állítja, hogy a felsorolt tesztek már mind megvalósultak.
 
-## Biztonsági alapelvek
+## Licenc és külső komponensek
 
--   Csak ellenőrzött forrásból származó csomagokat és kiadásokat
-    használj.
--   A kiadásokhoz tartozzon ellenőrzőösszeg, lehetőség szerint aláírás
-    is.
--   A rendszer ne kérjen folyamatosan rendszergazdai jogosultságot.
--   A frissítő ne hajtson végre ellenőrizetlen távoli kódot.
--   A hibákat naplózza, a személyes adatokat pedig ne gyűjtse
-    szükségtelenül.
--   A biztonsági hibák bejelentéséhez legyen dokumentált
-    kapcsolatfelvételi csatorna.
+A FluxOS saját komponenseinek felhasználási feltételeit a repository
+licencfájlja határozza meg. A kernel, a driverek és a csomagolt külső
+alkalmazások saját licencei továbbra is érvényesek.
 
-## Licenc és külső összetevők
+A kiadásoknak dokumentálniuk kell a felhasznált külső összetevőket, a
+szükséges szerzői jogi közleményeket és a vonatkozó licenceket. A
+projekt saját licencét a tényleges terjesztési modellhez és az
+alkalmazott komponensek feltételeihez kell igazítani.
 
-A FluxOS saját komponenseinek licencét a repositoryban található
-licencfájl határozza meg. A Linux kernel és a csomagolt külső programok
-külön licencek alatt állhatnak; ezeket tiszteletben kell tartani, és a
-kiadásban szereplő licenceket dokumentálni kell.
+## Fejlesztési ütemterv
 
-A külső nyílt forráskódú összetevők használata nem jelenti azt, hogy
-azok licencei figyelmen kívül hagyhatók. A terjesztési csomagban fel
-kell tüntetni a szükséges szerzői jogi és licencinformációkat.
+### 1. Stabil alap
 
-## Ütemterv
+-   [ ] Reprodukálható build és ellenőrizhető ISO
+-   [ ] Telepítő és első indítás
+-   [ ] Boot- és hardvertesztek
+-   [ ] Hibajelentési folyamat
 
-### Alapok
+### 2. Saját felhasználói élmény
 
--   [ ] Stabil buildfolyamat és ISO-ellenőrzés
--   [ ] Telepítő és első indítási folyamat
--   [ ] Hardver- és kompatibilitási tesztek
--   [ ] Hibajelentési és kiadási folyamat
-
-### Felhasználói élmény
-
--   [ ] Egységes asztal és beállításközpont
--   [ ] Gaming, Office, Server és Developer profilok
+-   [ ] Flux Desktop és Control Center
+-   [ ] Gaming, Office, Developer és Server profilok
 -   [ ] Energia- és teljesítménykezelés
 -   [ ] Helyreállítási lehetőségek
 
-### Ökoszisztéma
+### 3. Ökoszisztéma
 
 -   [ ] Alkalmazáskatalógus
--   [ ] Fejlesztői dokumentáció és SDK
--   [ ] Automatikus tesztelés és kiadási pipeline
--   [ ] Világos támogatási és frissítési politika
+-   [ ] Fejlesztői SDK és dokumentáció
+-   [ ] Automatizált tesztelés és kiadási pipeline
+-   [ ] Támogatási és biztonsági folyamat
 
-A jelölőnégyzetek a projekt céljait mutatják; csak a ténylegesen
-elkészült funkciókat szabad késznek jelölni.
+A jelölőnégyzetek a fejlesztési tervet jelölik, nem a jelenlegi
+készültségi állapotot.
 
-## Közreműködés és hibajelentés
+## Hibajelentés
 
-Hibajelentéskor add meg:
+Hibabejelentéshez add meg a FluxOS-verziót, a hardvert, a reprodukálás
+lépéseit és a releváns naplórészleteket. Jelszót, tokent vagy személyes
+fájlokat ne csatolj.
 
--   a FluxOS kiadását és verzióját;
--   a hardvert és a grafikus vezérlőt;
--   a hiba reprodukálásának lépéseit;
--   a releváns naplórészleteket;
--   hogy a probléma friss telepítés után is jelentkezik-e.
+## Hivatkozások
 
-Ne küldj jelszavakat, hozzáférési tokeneket vagy személyes fájlokat a
-hibajegyben.
-
-## Projekt
-
--   **Repository:** [Flux-OS a
-    GitHubon](https://github.com/bencepalko383-lgtm/Flux-OS)
--   **Kiadások:**
-    [Releases](https://github.com/bencepalko383-lgtm/Flux-OS/releases)
+-   **GitHub:**
+    [bencepalko383-lgtm/Flux-OS](https://github.com/bencepalko383-lgtm/Flux-OS)
+-   **Kiadások:** [FluxOS
+    Releases](https://github.com/bencepalko383-lgtm/Flux-OS/releases)
 
 ------------------------------------------------------------------------
 
-**FluxOS --- Build your dream.**
+```{=html}
+<p align="center">
+```
+`<strong>`{=html}FluxOS --- Build your dream.`</strong>`{=html}
+```{=html}
+</p>
+```
